@@ -1,7 +1,0 @@
-package com.nttdata.controllerTest;
-
-import org.junit.Test;
-
-public class ClienteControllerTest {
-
-}
