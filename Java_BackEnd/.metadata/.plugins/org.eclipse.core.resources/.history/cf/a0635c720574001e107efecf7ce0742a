@@ -1,0 +1,45 @@
+package com.nttdata.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ClienteController {
+
+	@GetMapping("/clientes/{tipoDocumento}/{numeroDocumento}")
+	public ResponseEntity<Cliente> obtenerInformacionCliente(
+	        @PathVariable String tipoDocumento,
+	        @PathVariable String numeroDocumento) {
+
+        // Validar que los parámetros tipoDocumento y numeroDocumento sean obligatorios
+        if (tipoDocumento == null || numeroDocumento == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        // Validar que el tipo de documento sea válido (C para cédula, P para pasaporte)
+        if (!tipoDocumento.equals("C") && !tipoDocumento.equals("P")) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        // Si los parámetros son correctos, buscar la información del cliente
+        if (tipoDocumento.equals("C") && numeroDocumento.equals("23445322")) {
+            Cliente cliente = new Cliente();
+            cliente.setPrimerNombre("Juan");
+            cliente.setSegundoNombre("Carlos");
+            cliente.setPrimerApellido("Pérez");
+            cliente.setSegundoApellido("Gómez");
+            cliente.setTelefono("555-1234567");
+            cliente.setDireccion("123 Calle Principal");
+            cliente.setCiudadResidencia("Ciudad Ejemplo");
+
+            return new ResponseEntity<>(cliente, HttpStatus.OK);
+        }
+
+        // Si no se encontró el cliente, devolver 404 Not Found
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+}

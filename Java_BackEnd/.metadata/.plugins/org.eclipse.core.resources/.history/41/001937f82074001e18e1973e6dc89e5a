@@ -1,0 +1,12 @@
+package com.nttdata.controllerTest;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class ClienteControllerTest {
+	@Test
+	public void pruebaError500 () {
+		
+	}
+
+}
