@@ -20,7 +20,7 @@ public class BuscarPorTipoNumeroDocumentoUseCase {
 				LOGGER.warn("Tipo de documento no válido:" + tipoDocumento);
 				return ResponseEntity.badRequest().body("Tipo de documento no válido.");
 			}
-			int ndocumento = Integer.parseInt(numeroDocumento);
+			long ndocumento = Long.parseLong(numeroDocumento);
 			if (ndocumento != 23445322 || !"C".equals(tipoDocumento)) {
 				LOGGER.warn("Cliente no válido con tipo de documento " + tipoDocumento + " y número de documento "
 						+ numeroDocumento);

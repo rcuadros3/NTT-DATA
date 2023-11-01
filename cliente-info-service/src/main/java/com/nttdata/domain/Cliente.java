@@ -1,7 +1,7 @@
 package com.nttdata.domain;
 
 public class Cliente {
-	private int numeroDocumento;
+	private long numeroDocumento;
 	private String tipoDocumento;
 	private String primerNombre;
 	private String segundoNombre;
@@ -70,11 +70,11 @@ public class Cliente {
 		this.ciudadResidencia = ciudadResidencia;
 	}
 
-	public int getNumeroDocumento() {
+	public long getNumeroDocumento() {
 		return numeroDocumento;
 	}
 
-	public void setNumeroDocumento(int numeroDocumento) {
+	public void setNumeroDocumento(long numeroDocumento) {
 		this.numeroDocumento = numeroDocumento;
 	}
 
@@ -86,7 +86,7 @@ public class Cliente {
 		this.tipoDocumento = tipoDocumento;
 	}
 
-	public void mockearCliente(int numeroDocumento, String tipoDocumento) {
+	public void mockearCliente(long numeroDocumento, String tipoDocumento) {
 		this.setNumeroDocumento(numeroDocumento);
 		this.setTipoDocumento(tipoDocumento);
 		this.setPrimerNombre("Ronald");
